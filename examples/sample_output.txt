@@ -1,0 +1,9 @@
+[2022-01-01-23:59:59] [routineno. 1] [INFO ] Welcome to the locker demo!
+[2022-01-01-23:59:59] [routineno. 1] [DEBUG] I hope you enjoy your stay 
+[2022-01-01-23:59:59] [routineno. 1] [WARN ] About to start a long and tedious task
+[2022-01-01-23:59:59] [routineno. 1] [DEBUG] [LongAndTediousTask] That is a long task
+[2022-01-01-23:59:59] [routineno. 19] [INFO ] Lets start a side project while we do something else
+[2022-01-01-23:59:59] [routineno. 1] [DEBUG] [LongAndTediousTask] This really is long
+[2022-01-01-23:59:59] [routineno. 1] [ERROR] [LongAndTediousTask] This takes a bit too long, let's stop doing this
+[2022-01-01-23:59:59] [routineno. 20] [INFO ] I'd like to interject here and say that it's actually go not golang, you see...
+[2022-01-01-23:59:59] [routineno. 19] [INFO ] This should be good enough
