@@ -2,8 +2,6 @@ package locker
 
 import (
 	"bytes"
-	"locker/constants"
-	"locker/logwriter"
 	"runtime/debug"
 	"strings"
 	"sync"
@@ -20,30 +18,30 @@ type contextValues struct {
 	generated string
 }
 
-var writer = logwriter.DefaultDebugWriter()
+var writer = DefaultDebugWriter()
 var goroutineContexts = context{
 	lock:     sync.RWMutex{},
 	contexts: make(map[string]*contextValues),
 }
 
-func SetWriter(logwriter logwriter.LogWriter) {
+func SetWriter(logwriter LogWriter) {
 	writer = logwriter
 }
 
 func Debug(msg string) {
-	writeWithLevel(msg, constants.LevelDebug)
+	writeWithLevel(msg, LevelDebug)
 }
 
 func Info(msg string) {
-	writeWithLevel(msg, constants.LevelInfo)
+	writeWithLevel(msg, LevelInfo)
 }
 
 func Warn(msg string) {
-	writeWithLevel(msg, constants.LevelWarn)
+	writeWithLevel(msg, LevelWarn)
 }
 
 func Error(msg string) {
-	writeWithLevel(msg, constants.LevelError)
+	writeWithLevel(msg, LevelError)
 }
 
 func Push(context string) {
@@ -132,16 +130,16 @@ func (c contextValues) get() string {
 
 func getLevelFormat(level int) string {
 	switch level {
-	case constants.LevelDebug:
+	case LevelDebug:
 		return "[DEBUG]"
 		break
-	case constants.LevelInfo:
+	case LevelInfo:
 		return "[INFO ]"
 		break
-	case constants.LevelWarn:
+	case LevelWarn:
 		return "[WARN ]"
 		break
-	case constants.LevelError:
+	case LevelError:
 		return "[ERROR]"
 		break
 	}

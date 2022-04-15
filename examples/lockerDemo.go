@@ -1,7 +1,7 @@
 package main
 
 import (
-    "locker"
+    "github.com/Schmille/locker"
     "time"
 )
 

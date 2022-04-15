@@ -1,4 +1,4 @@
-package constants
+package locker
 
 const (
 	LevelDebug = iota

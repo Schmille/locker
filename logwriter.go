@@ -1,7 +1,6 @@
-package logwriter
+package locker
 
 import (
-	"locker/constants"
 	"os"
 )
 
@@ -25,12 +24,12 @@ type CombinedWriter struct {
 }
 
 func DefaultDebugWriter() LogWriter {
-	return NewTerminalWriter(constants.LevelDebug)
+	return NewTerminalWriter(LevelDebug)
 }
 
 func DefaultProdWriter() LogWriter {
-	stdWriter := NewTerminalWriter(constants.LevelInfo)
-	fileWriter := NewFileWriter(constants.LevelError, "./errors.log")
+	stdWriter := NewTerminalWriter(LevelInfo)
+	fileWriter := NewFileWriter(LevelError, "./errors.log")
 	list := make([]LogWriter, 2)
 	list[0] = stdWriter
 	list[1] = fileWriter
@@ -66,7 +65,7 @@ func NewTerminalWriter(level int) TerminalWriter {
 
 func (t TerminalWriter) Write(msg string, level int) {
 	if t.level <= level {
-		if t.level == constants.LevelError {
+		if t.level == LevelError {
 			_, _ = os.Stderr.WriteString(msg)
 		}
 		_, _ = os.Stdout.WriteString(msg)
